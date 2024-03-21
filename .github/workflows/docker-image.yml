@@ -5,11 +5,11 @@ on:
   push:
     paths:
       - dockerfile/**
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
     paths:
       - dockerfile/**
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build-dev-containers:
@@ -36,6 +36,6 @@ jobs:
           context: .
           file: ./dockerfile/dev-containers/${{ matrix.os }}/Dockerfile
           push: true
-          tags: congyuwang/rust-container:llvm17-stable-1.76.0-${{ matrix.os }}
-          cache-from: type=registry,ref=congyuwang/rust-container:llvm17-stable-1.76.0-${{ matrix.os }}
+          tags: congyuwang/rust-container:llvm17-stable-1.77.0-${{ matrix.os }}
+          cache-from: type=registry,ref=congyuwang/rust-container:llvm17-stable-1.77.0-${{ matrix.os }}
           cache-to: type=inline
