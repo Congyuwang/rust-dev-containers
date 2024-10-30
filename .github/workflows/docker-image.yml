@@ -36,6 +36,6 @@ jobs:
           context: .
           file: ./dockerfile/dev-containers/${{ matrix.os }}/Dockerfile
           push: true
-          tags: congyuwang/rust-container:llvm18-stable-1.78.0-${{ matrix.os }}
-          cache-from: type=registry,ref=congyuwang/rust-container:llvm18-stable-1.78.0-${{ matrix.os }}
+          tags: congyuwang/rust-container:llvm19-stable-1.81.0-${{ matrix.os }}
+          cache-from: type=registry,ref=congyuwang/rust-container:llvm19-stable-1.81.0-${{ matrix.os }}
           cache-to: type=inline

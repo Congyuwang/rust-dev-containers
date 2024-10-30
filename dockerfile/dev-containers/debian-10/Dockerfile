@@ -34,14 +34,14 @@ RUN make install
 WORKDIR /root
 RUN rm -rf temp
 
-# install llvm@18
+# install llvm@19
 COPY ./update-alternatives-clang.sh /root
 RUN wget https://apt.llvm.org/llvm.sh
 RUN chmod +x llvm.sh
-RUN ./llvm.sh 18 all
+RUN ./llvm.sh 19 all
 # use tsinghua mirror in China, comment out if you are not in China
-#RUN ./llvm.sh 18 all -m https://mirrors.tuna.tsinghua.edu.cn/llvm-apt
-RUN ./update-alternatives-clang.sh 18 9999
+#RUN ./llvm.sh 19 all -m https://mirrors.tuna.tsinghua.edu.cn/llvm-apt
+RUN ./update-alternatives-clang.sh 19 9999
 RUN rm llvm.sh
 RUN rm update-alternatives-clang.sh
 
@@ -49,7 +49,7 @@ RUN rm update-alternatives-clang.sh
 # use ustc mirror in China, comment out if you are not in China
 #ARG RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
 #ARG RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.78.0
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.81.0
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 RUN chsh -s /bin/bash
